@@ -1,5 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace WeatherApi
 {
+    public class Features
+    {
+        public int conditions { get; set; }
+    }
+
+    public class Response
+    {
+        public string version { get; set; }
+        public string termsofService { get; set; }
+        public Features features { get; set; }
+    }
+
+    public class Image
+    {
+        public string url { get; set; }
+        public string title { get; set; }
+        public string link { get; set; }
+    }
+
+    public class Estimated
+    {
+    }
+
     public class CurrentObservation
     {
         public Image image { get; set; }
@@ -57,5 +86,11 @@ namespace WeatherApi
         public string forecast_url { get; set; }
         public string history_url { get; set; }
         public string ob_url { get; set; }
+    }
+
+    public class WeatherEvent
+    {
+        public Response response { get; set; }
+        public CurrentObservation current_observation { get; set; }
     }
 }

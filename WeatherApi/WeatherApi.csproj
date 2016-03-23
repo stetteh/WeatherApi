@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrentObservation.cs" />
     <Compile Include="DisplayLocation.cs" />
     <Compile Include="features.cs" />
     <Compile Include="Program.cs" />
