@@ -44,6 +44,8 @@ namespace WeatherApi
             //map result to weatherinfo
             var info = new WeatherInfo();
             info.Temp = weatherEvent.current_observation.temp_f + "° F";
+            info.City = weatherEvent.current_observation.display_location.city;
+            info.State = weatherEvent.current_observation.display_location.state;
 
             return info;
 

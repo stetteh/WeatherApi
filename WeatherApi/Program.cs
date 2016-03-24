@@ -14,8 +14,24 @@ namespace WeatherApi
 
             var mgr = new WeatherManager();
             var weatherInfo = mgr.GetWeather("72120");
-
             Console.WriteLine(weatherInfo.Temp);
+
+            Console.WriteLine("Please enter a zipcode");
+
+            var mgr2 = new WeatherManager();
+            var newinfo = Console.ReadLine();
+
+           var newinfo2 = mgr2.GetWeather(newinfo);
+    
+            Console.WriteLine($"{newinfo2.Temp} {newinfo2.City}");
+
+
+
+
+
+
+
+
             //var client = new RestClient("http://api.wunderground.com");
             //// client.Authenticator = new HttpBasicAuthenticator(username, password);
 
