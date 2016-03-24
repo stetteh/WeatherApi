@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace WeatherApi
@@ -12,7 +13,7 @@ namespace WeatherApi
         CityState,
     }
 
-    public class WeatherManger
+    public class WeatherManager
     {
 
         public WeatherInfo GetWeather(string userInput)
@@ -24,7 +25,7 @@ namespace WeatherApi
             ILookup lookup = new WUGLookup();
             //determine if userINput is a zip or otherwise using regex
             //if it was a zip string then
-            WeatherEvent result;
+            WeatherInfo result;
 
             switch (lookupType)
             {
@@ -38,17 +39,24 @@ namespace WeatherApi
             }
 
 
-            //map result to weatherinfo
-            var info = new WeatherInfo();
-            //info.Temp = result.CurrentObservations.Temperature + "° F";
-
-            return info;
+            return result;
         }
 
-        private LookupType FigureOutLookupType(string userInput)
+        public LookupType FigureOutLookupType(string userInput)
         {
             //do regex check for zip here.
-            throw new NotImplementedException();
+            string pattern = @"^\d{5}(\-\d{4})?";
+            Regex regex = new Regex(pattern);
+
+            if (regex.IsMatch(userInput))
+            {
+                return LookupType.Zip;
+            }
+            else
+            {
+                return LookupType.CityState;
+            }
+
         }
     }
 }
