@@ -28,7 +28,6 @@ namespace WeatherApi
             var response = client.Execute<List<WeatherEvent>>(request);
             List<WeatherEvent> events = response.Data; // raw content as string
 
-            DisplayLocation loc = new DisplayLocation();
 
 
             Console.WriteLine("Please enter your zipcode");
@@ -36,17 +35,17 @@ namespace WeatherApi
              int userinput = Convert.ToInt32(input);
 
            
-            if (userinput == 72223)
-            {
-                foreach (var e in events)
-                {
-                    Console.WriteLine($" {e.current_observation.display_location.city} {e.current_observation.temp_f}");
-                }            
-            }
-            else
-            {
-                Console.WriteLine("Zip code Not known");
-            }
+            //if (userinput == 72223)
+            //{
+            //    foreach (var e in events)
+            //    {
+            //        Console.WriteLine($" {e.current_observation.display_location.city} {e.current_observation.temp_f}");
+            //    }            
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Zip code Not known");
+            //}
 
             Console.ReadLine();
         }
