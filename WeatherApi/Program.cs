@@ -16,14 +16,19 @@ namespace WeatherApi
             var weatherInfo = mgr.GetWeather("72120");
             Console.WriteLine(weatherInfo.Temp);
 
+            Console.WriteLine("Welcome to the Weather App");
             Console.WriteLine("Please enter a zipcode");
 
             var mgr2 = new WeatherManager();
             var newinfo = Console.ReadLine();
 
-           var newinfo2 = mgr2.GetWeather(newinfo);
-    
-            Console.WriteLine($"{newinfo2.Temp} {newinfo2.City}");
+            var newinfo2 = mgr2.GetWeather(newinfo);
+
+            Console.WriteLine($"Location: {newinfo2.City}");
+            Console.WriteLine($"State: {newinfo2.State}");
+            Console.WriteLine($"Temperature: {newinfo2.Temp}");
+            Console.WriteLine($"UV: {newinfo2.UV}");
+            Console.WriteLine($"Humidity: {newinfo2.Humidity}");
 
 
 

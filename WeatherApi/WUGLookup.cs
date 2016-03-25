@@ -46,6 +46,9 @@ namespace WeatherApi
             info.Temp = weatherEvent.current_observation.temp_f + "° F";
             info.City = weatherEvent.current_observation.display_location.city;
             info.State = weatherEvent.current_observation.display_location.state;
+            info.UV = weatherEvent.current_observation.UV;
+            info.Humidity = weatherEvent.current_observation.relative_humidity;
+            
 
             return info;
 

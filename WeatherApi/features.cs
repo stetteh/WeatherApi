@@ -9,6 +9,7 @@ namespace WeatherApi
     public class Features
     {
         public int conditions { get; set; }
+        public int alerts { get; set; }
     }
 
     public class Response
@@ -85,9 +86,24 @@ namespace WeatherApi
         public string ob_url { get; set; }
     }
 
+    public class Alert
+    {
+        public string type { get; set; }
+        public string description { get; set; }
+        public string date { get; set; }
+        public string date_epoch { get; set; }
+        public string expires { get; set; }
+        public string expires_epoch { get; set; }
+        public string message { get; set; }
+        public string phenomena { get; set; }
+        public string significance { get; set; }
+       
+    }
+
     public class WeatherEvent
     {
         public Response response { get; set; }
         public CurrentObservation current_observation { get; set; }
+        public List<Alert> alerts { get; set; }
     }
 }
